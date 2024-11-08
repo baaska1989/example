@@ -17,4 +17,10 @@ class HomeController extends Controller
         $data = DB::table('students')->get();
         return response()->json(['data' => $data]);
     }
+
+    public function delete($id)
+    {
+        DB::table('students')->where('id', $id)->delete();
+        return response()->json(['status' => true]);
+    }
 }

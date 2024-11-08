@@ -46,12 +46,23 @@ export default {
         alert1(value) {
             alert("Сайн байна уу  " + value);
         },
-        userDelete() {
+        userDelete(value) {
             Swal.fire({
-                title: "Амжилттай!",
-                text: "Do you want to continue",
-                icon: "success",
-                confirmButtonText: "Cool",
+                title: "Та устгахдаа итгэлтэй байна уу?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Тийм!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.get('/delete/' + value).then(({data}) => {
+                        if(data.status)
+                        {
+                            this.getStudent();
+                        }
+                    })
+                }
             });
         },
     },
