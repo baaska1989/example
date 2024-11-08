@@ -56,12 +56,16 @@ export default {
                 confirmButtonText: "Тийм!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.get('/delete/' + value).then(({data}) => {
-                        if(data.status)
-                        {
+                    axios.get("/delete/" + value).then(({ data }) => {
+                        if (data.status) {
+                            this.$toast.success({
+                                message: "Амжилттай устаглаа!",
+                                position: 'top-right'
+                              
+                            });
                             this.getStudent();
                         }
-                    })
+                    });
                 }
             });
         },
