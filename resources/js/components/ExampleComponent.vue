@@ -15,6 +15,7 @@
                         <td>{{ student.last_name }}</td>
                         <td>{{ student.first_name }}</td>
                         <td>{{ student.birth_date }}</td>
+                        <td><button @click="userDelete(student.id)" class="bg-red-600 text-white px-5 py-1">Устгах</button></td>
                     </tr>
                 </table>
             </div>
